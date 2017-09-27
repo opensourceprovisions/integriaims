@@ -1,0 +1,48 @@
+!! Welcome to your wiki!
+
+[http://openideas.info/wiki/images/thumb/b/b3/Integria_white.png/250px-Integria_white.png|right]
+This is a a '''example''' wiki with some links and subpages just to show you how to use it. You probably know about [Wikipedia|http://wikipedia.org]. Thats also a WIKI and works more or less the same, but of course that one has loads of content :)
+
+!!! What you can do on the wiki
+
+As said, it works about the same as Wikipedia, so it should be pretty easy to use. Some of the basic functionalities are:
+* Creation of '''new pages'''. You can do this by:
+** Thinking of a nice page title
+** Searching for this title in the menu on the left
+** On the results page (nothing is found), click on 'Create page'
+* Subpages (this is a [subpage|sample subpage] to demonstrate how to link different pages)
+* Pages in '''multiple langues''' (see 'Syntax' menu option on the left)
+* Use [side_menu] to add items to the bottom of the menu on the left
+* Click 'Edit' on the left to change a page's name
+* Standard '''formatting options''', like:
+** headings and sub-headings (like the one just above)
+** ordered and unordered lists (isn't this a great example!)
+** images (you can upload and use your own images or reference from another site)
+** tables and automatic tables of content
+** links, bot to external pages and other wiki pages
+** pieces of code (see example below)
+** ... and much, much more (see 'Syntax' menu option on the left)
+
+!!! Sample code
+
+{{
+
+// Check for installer presence
+if (file_exists ("install.php")) {
+	include "general/error_install.php";
+	exit;
+}
+
+if (! is_readable ("include/config.php")) {
+	include "general/error_perms.php";
+	exit;
+}
+// Check perms for config.php
+$perms = fileperms ('include/config.php');
+
+}}
+
+!! Now it's your turn
+Now you've seen some of the options to create a nice wiki to share information between people in your organisation.
+
+Let's build this space!

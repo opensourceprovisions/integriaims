@@ -1,0 +1,20 @@
+Inventory command line import tool
+==================================
+
+This tool is provided to quickly import inventory information from a CSV file. This CSV must have the following columns/syntax:
+
+name, description, serial_number, part_number,	comments,	confirmed,	cost,	ip_address,id_contract, id_product, id_sla, id_manufacturer, id_building, id_parent, generic_1, generic_2, generic_3, generic_4, generic_5, generic_6, generic_7, generic_8
+
+This would be an example of a source CSV file:
+
+Dell Vostro 1100, Ordenador de escritorio, ID243234334, SN/83345, Es un ordenador corriente y normal, 1, 600,192.168.50.3,1,1,,,,,,,,,,,,
+HP Presario 2300, Ordenador portatil de direccion, ID12434334, SN/1245, Es un ordenador plata, con 2MB y 2 CPU, 1, 1200,192.168.50.1,1,1,,,,,,,,,,,,
+
+As you see, missing fields could be "blank".
+
+Call to command line tool is simple. This tool is located under "extras" directory, and this is an example of a exection:
+
+ php inventory_importer.php admin integria test.csv ,
+
+ 
+

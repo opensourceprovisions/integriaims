@@ -1,0 +1,483 @@
+
+#menu_nav .portletBody a{
+  color: #ff9000 !important;
+}
+#menu_nav{
+  font-family: verdana, sans-serif;
+  position:relative;
+  text-align: left;
+  /*margin-top: 20px;*/
+  clear: left;
+  margin-left:0px;
+}
+#sidesel{
+  color: #666 !important; 
+}
+#menu_nav > ul{
+  padding: 0px;
+  width: 52px;
+  list-style-type: none;
+  text-align: center;
+  font-size: 0;
+}
+#menu_nav > ul > li {
+/*
+  display: block;
+*/
+  width: 52px;
+  height: 55px;
+  position:relative;
+  background-color: #e7e7e7;
+  border: 1px solid #E0E0E0;
+}
+/*
+#menu_nav > ul > li:first-child {
+  border-top: 1px solid #E0E0E0;
+}
+*/
+
+#menu_nav > ul > li:last-child {
+  border-bottom: 1px solid #E0E0E0;
+}
+#menu_nav > ul > li > a {
+  font-size: 0px; 
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff9000;
+  display: block; 
+  height: 55px;
+}
+
+#menu_nav > ul > li:hover, #menu_nav > ul > li:focus, #menu_nav > ul > li.sideselcolor{
+    background-color: #ff9000;
+    color: #fff;
+}
+
+.extensiones > ul > li:first-child {
+  border-top: 1px solid #E0E0E0 !important;
+}
+#menu_nav #wiki input{
+  width: 128px;
+}
+#menu_nav #wiki .submit{
+  margin-top: 5px;
+  height: 25px;
+  width: 40px;
+}
+#menu_nav + #menu_nav > ul > li{
+  border-top:0px !important;
+}
+/****************DESPLEGABLES*/
+
+#menu_nav li ul {
+    display: none;
+    position: absolute;
+    height: auto;
+    overflow: hidden;
+    left: 100%;
+    margin-left: 1px;
+    top: 0;
+}
+/*
+#menu_nav li:hover ul {
+  display: block;
+*/
+/*
+}
+*/
+#menu_nav  li  li{ 
+  /*border-bottom: 2px solid black;*/
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-weight:normal;
+  padding: 5px 10px 10px 5px;
+  font-size: 13px;
+}
+#menu_nav  li  li:last-child{ 
+  padding-bottom:10px;
+}
+#menu_nav  li  li h1{
+  padding-top:10px;
+  color: #ff9000;
+  font-weight:bold;
+  font-size: 13px;
+  text-align: left;
+} 
+#menu_nav  li  li a{
+  text-decoration: none;
+  color: #666;
+} 
+/*
+#menu_nav li:hover li a #menu_nav li:focus li a {
+    display: block;
+}
+*/
+/*
+#menu_nav li li a:hover, #menu_nav li li a:focus {
+  color: #000;
+}
+*/
+
+#menu_nav ul li ul, #menu_nav ul li ul {
+
+    background-color: #e7e7e7;
+    border: 1px solid #E0E0E0;
+    width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 1002;
+
+}
+
+#menu_nav ul ul li:first-child{
+  padding-top: 12px;
+
+}
+#menu_nav ul ul li:first-child h1{
+	border-bottom:0px solid #ff9000;
+}
+
+/*************************IMAGENES*/
+li#proyectos{
+  background-image: url("../../images/icons/proyectos_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#proyectos:hover, #sideselproject{
+  background-image: url("../../images/icons/proyectos_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+li#ticket{
+  background-image: url("../../images/icons/ticket_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#ticket:hover, #sideselticket{
+  background-image: url("../../images/icons/ticket_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#calendario{
+  background-image: url("../../images/icons/calendar_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#calendario:hover, #sideselcalendario{
+  background-image: url("../../images/icons/calendar_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#x{
+  background-image: url("../../images/icons/x_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#x:hover{
+  background-image: url("../../images/icons/x_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#enlaces{
+  background-image: url("../../images/icons/enlaces_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#enlaces:hover, #sideselenlaces{
+  background-image: url("../../images/icons/enlaces_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#info_usuario{
+  background-image: url("../../images/icons/info_usuario_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#info_usuario:hover, #sideselinfo_usuario{
+  background-image: url("../../images/icons/info_usuario_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#informes{
+  background-image: url("../../images/icons/informes_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#informes:hover, #sideselinformes{
+  background-image: url("../../images/icons/informes_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#inventario{
+  background-image: url("../../images/icons/inventario_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#inventario:hover, #sideselinventario{
+  background-image: url("../../images/icons/inventario_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#newsletter{
+  background-image: url("../../images/icons/newsletter_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#newsletter:hover, #sideselnewsletter{
+  background-image: url("../../images/icons/newsletter_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#workunit{
+  background-image: url("../../images/icons/workunit_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#workunit:hover, #sideselworkunit{
+  background-image: url("../../images/icons/workunit_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#clientes{
+  background-image: url("../../images/icons/clientes_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#clientes:hover, #sideselclientes{
+  background-image: url("../../images/icons/clientes_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#kb{
+  background-image: url("../../images/icons/kb_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#kb:hover, #sideselkb{
+  background-image: url("../../images/icons/kb_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#grupos{
+  background-image: url("../../images/icons/grupos_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#grupos:hover, #sideselgrupos{
+  background-image: url("../../images/icons/grupos_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#sla{
+  background-image: url("../../images/icons/sla_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#sla:hover, #sideselsla{
+  background-image: url("../../images/icons/sla_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#tipo_ticket{
+  background-image: url("../../images/icons/tipo_ticket_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#tipo_ticket:hover, #sideseltipo_ticket{
+  background-image: url("../../images/icons/tipo_ticket_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#inventario{
+  background-image: url("../../images/icons/inventario_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#inventario:hover, #sideselinventario{
+  background-image: url("../../images/icons/inventario_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#fabricantes{
+  background-image: url("../../images/icons/fabricantes_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#fabricantes:hover, #sideselfabricantes{
+  background-image: url("../../images/icons/fabricantes_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#objetos_inventario{
+  background-image: url("../../images/icons/objetos_inventario_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#objetos_inventario:hover, #sideselobjetos_inventario{
+  background-image: url("../../images/icons/objetos_inventario_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#info_usuario{
+  background-image: url("../../images/icons/info_usuario_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#info_usuario:hover, #sideselinfo_usuario{
+  background-image: url("../../images/icons/info_usuario_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#enlaces{
+  background-image: url("../../images/icons/enlaces_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#enlaces:hover, #sideselenlaces{
+  background-image: url("../../images/icons/enlaces_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#clientes{
+  background-image: url("../../images/icons/clientes_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#clientes:hover, #sideselclientes{
+  background-image: url("../../images/icons/clientes_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#templates{
+  background-image: url("../../images/icons/templates_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#templates:hover, #sideseltemplates{
+  background-image: url("../../images/icons/templates_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#newsletter{
+  background-image: url("../../images/icons/newsletter_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#newsletter:hover, #sideselnewsletter{
+  background-image: url("../../images/icons/newsletter_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#campana{
+  background-image: url("../../images/icons/campana_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#campana:hover, #sideselcampana{
+  background-image: url("../../images/icons/campana_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#gestion{
+  background-image: url("../../images/icons/gestion_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#gestion:hover, #sideselgestion{
+  background-image: url("../../images/icons/gestion_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#informes{
+  background-image: url("../../images/icons/informes_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#informes:hover, #sideselinformes{
+  background-image: url("../../images/icons/informes_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#manage{
+  background-image: url("../../images/icons/gestion_usuarios_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#manage:hover, #sideselmanage{
+  background-image: url("../../images/icons/gestion_usuarios_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#wiki{
+  background-image: url("../../images/icons/wiki_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#wiki:hover, #sideselwiki{
+  background-image: url("../../images/icons/wiki_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#flujos{
+  background-image: url("../../images/icons/flujos_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#flujos:hover, #sideselflujos{
+  background-image: url("../../images/icons/flujos_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+li#gestionproyectos{
+  background-image: url("../../images/icons/project_management_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#gestionproyectos:hover, #sideselgestionproyectos{
+  background-image: url("../../images/icons/project_management_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#detallestareas{
+  background-image: url("../../images/icons/task_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#detallestareas:hover, #sideseldetallestareas{
+  background-image: url("../../images/icons/task_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#knowledge_base{
+  background-image: url("../../images/icons/base_conocimiento_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#knowledge_base:hover, #sideselknowledge_base{
+  background-image: url("../../images/icons/base_conocimiento_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#downloads{
+  background-image: url("../../images/icons/liberar_ficheros_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#downloads:hover, #sideseldownloads{
+  background-image: url("../../images/icons/liberar_ficheros_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#myself{
+  background-image: url("../../images/icons/yo_nar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+li#myself:hover, #sideselmyself{
+  background-image: url("../../images/icons/yo_gris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}

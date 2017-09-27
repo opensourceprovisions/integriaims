@@ -1,0 +1,5 @@
+! Title of subpage
+
+Hello, this is sample content.
+
+Go back to [home|Main page] page.

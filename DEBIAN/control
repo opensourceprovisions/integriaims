@@ -1,0 +1,11 @@
+package: IntegriaIMS
+Version: 5.0-161223
+Architecture: all
+Priority: optional
+Section: admin
+Installed-Size: 42112
+Maintainer: Miguel de Dios <miguel.dedios@artica.es>
+Homepage: http://integriaims.com/
+Depends: apache2, libapache2-mod-php5, php5, php5-gd, php5-mysql, php5-xmlrpc, php-gettext, dbconfig-common, mysql-client, php5-ldap, curl, php5-imap, php5-mcrypt, php5-curl
+Description: Integria IMS is a management software for SME. It includes a complete approach to project management, CRM, incident management/ticketing, CMDB/Inventory, file distribution, time tracking management, knowledgue base, integrated WIKI and Agenda. Integria is a multiuser WEB Application, with an integrated email reporting and notification system. There is a companion Android/iPhone front end app.
+

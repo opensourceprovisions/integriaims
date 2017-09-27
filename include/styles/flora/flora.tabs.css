@@ -1,0 +1,102 @@
+@import "flora.css";
+
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+	.ui-tabs-hide {
+		display: none;
+	}
+}
+
+/* Hide useless elements in print layouts... */
+@media print {
+	.ui-tabs-nav {
+		display: none;
+	}
+}
+
+/* Skin */
+.ui-tabs-nav, .ui-tabs-panel {
+	font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+	font-size: 12px;		
+}
+.ui-tabs-nav {
+	list-style: none;
+	float: right;
+	padding: 0px;
+	margin-top: -8px;
+}
+.ui-tabs-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+	display: block;
+	clear: both;
+	content: " ";
+}
+.ui-tabs-nav li {
+	float: right;
+	font-weight: bold;
+	background-color: #F7F7F7;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	height: 29px;
+	margin-left: 3px;
+}
+
+.ui-tabs-nav li.h1 {
+	font: bold 17px Verdana, Arial, 'Trebuchet MS', Tahoma, Sans-serif;
+	letter-spacing: -0.9px;
+	text-transform: uppercase;
+	color: #555;
+}
+
+.ui-tabs-selected, .ui-tabs-nav li.ui-tabs:hover {
+	background-color: #FF9933 !important; /* orange */
+}
+
+.ui-tabs-title, .ui-tabs-title:hover {
+	float: left !important;
+	background-color: transparent !important;
+	color: #505050;
+	margin-left: -3px !important;
+	padding-left: 0px !important;
+	font-size: 17px;
+}
+
+.ui-tabs-title h2 {
+	font-size: 15px;
+	margin-top: 2px;
+}
+
+.ui-tabs-title h1 {
+	margin: 0px !important;
+	padding: 0px !important;
+	border: 0px !important;
+	width: 100% !important;
+}
+
+.ui-tabs-nav li a {
+	text-decoration:none;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+.ui-tabs-nav li a img {
+	margin-top: 5px;
+}
+
+.ui-tabs-nav li a span {
+	color: #ffffff;
+}
+
+.ui-tabs-nav li a em {
+	color: #ffffff;
+}
+
+.ui-tabs-nav li a span img{
+	margin-top: 4px;
+}
+
+.ui-tabs-disabled {
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}

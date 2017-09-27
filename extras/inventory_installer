@@ -1,0 +1,211 @@
+#!/bin/sh
+
+# Integria IMS Console Installer (c) 2008-2015 Artica ST
+# Linux/FreeBSD Version (generic), for SuSe, Debian/Ubuntu, RHEL/CentOS,
+# Fedora and FreeBSD only
+# other Linux distros could not work properly without modifications
+# Please see http://www.integriaims.com
+# This code is licensed under GPL 2.0 license.
+# **********************************************************************
+
+PI_VERSION=4.0dev
+FORCE=0
+LOG_TIMESTAMP=`date +"%Y/%m/%d %H:%M:%S"`
+MODE=$1
+
+TENTACLE_SERVER=/etc/init.d/tentacle_serverd
+
+get_distro () {
+
+	OS_NAME=`uname -s`
+
+	# Get Linux Distro type and version
+	if [ -f "/etc/SuSE-release" ]
+	then
+		OS_VERSION=`cat /etc/SuSE-release | grep VERSION | cut -f 3 -d " "`
+		LINUX_DISTRO=SUSE
+	else
+		if [ -f "/etc/lsb-release" ] && [ ! -f "/etc/redhat-release" ]
+		then
+			OS_VERSION=`cat /etc/lsb-release | grep DISTRIB_RELEASE | cut -f 2 -d "="`
+			LINUX_DISTRO=UBUNTU
+			OS_VERSION="UBUNTU $OS_VERSION"
+		else
+			if [ -f "/etc/debian_version" ]
+			then
+				OS_VERSION=`cat /etc/debian_version`
+				OS_VERSION="DEBIAN $OS_VERSION"
+				LINUX_DISTRO=DEBIAN
+			else
+				if [ -f "/etc/fedora-release" ]
+				then
+					OS_VERSION=`cat /etc/fedora-release | cut -f 4 -d " "`
+					OS_VERSION="FEDORA $OS_VERSION"
+					LINUX_DISTRO=FEDORA
+				else
+					if [ -f "/etc/redhat-release" ]
+					then
+						LINUX_DISTRO=RHEL_CENTOS
+					else
+						if [ "$OS_NAME" = "FreeBSD" ]
+						then
+							LINUX_DISTRO=FreeBSD
+						else
+							if [ "$OS_NAME" = "NetBSD" ]
+							then
+								LINUX_DISTRO=NetBSD
+							else
+								LINUX_DISTRO=GENERIC
+							fi
+						fi
+						OS_VERSION=`uname -r`
+					fi
+				fi
+			fi
+		fi
+	fi
+	echo $LINUX_DISTRO
+}
+
+
+install () {
+
+	DISTRO=`get_distro`
+	OLDFILENAMETMP=`date +"%Y-%m-%d"`
+	
+	if [ "$DISTRO" = "UBUNTU" ]
+	then
+		INTEGRIA_HOME=/var/www/integria/attachment/inventory
+		PANDORA_CONF=$INTEGRIA_HOME/include/config.php
+	else
+		if [ "$DISTRO" = "RHEL_CENTOS" ]
+		then
+			INTEGRIA_HOME=/var/www/html/integria/attachment/inventory
+			PANDORA_CONF=$INTEGRIA_HOME/include/config.php
+		else
+			if [ "$DISTRO" = "FEDORA" ]
+			then
+				INTEGRIA_HOME=/var/www/html/integria/attachment/inventory
+				PANDORA_CONF=$INTEGRIA_HOME/include/config.php
+			else
+				if [ "$DISTRO" = "FreeBSD" ]
+				then
+					if [ -d /usr/local/www/apache22 ]
+					then
+						INTEGRIA_HOME=/usr/local/www/apache22/data/integria/attachment/inventory
+					else
+						INTEGRIA_HOME=/usr/local/www/data/integria/attachment/inventory
+					fi
+					PANDORA_CONF=$INTEGRIA_HOME/include/config.php
+					TENTACLE_SERVER=/usr/local/etc/rc.d/tentacle_server
+				else
+					if [ "$DISTRO" = "NetBSD" ]
+					then
+						INTEGRIA_HOME=/usr/pkg/share/httpd/htdocs/integria/attachment/inventory
+						PANDORA_CONF=$INTEGRIA_HOME/include/config.php
+					else
+						INTEGRIA_HOME=/srv/www/htdocs/integria/attachment/inventory
+						PANDORA_CONF=$INTEGRIA_HOME/include/config.php
+					fi
+					TENTACLE_SERVER=/etc/rc.d/tentacle_server
+				fi
+			fi
+		fi
+	fi
+
+	echo "Detecting operating system: $DISTRO"
+	
+	# Creating 'integria' user
+	id integria 1>&2> /dev/null
+	if [ $? -eq 0 ]; then
+		echo " "
+		echo "User integria does exist, skipping this step"
+	else
+		echo "Creating 'integria' user"
+		if [ "$DISTRO" = "FreeBSD" ]
+		then
+			echo "integria:41121:::::Integria IMS:/home/integria:/usr/sbin/nologin:" | adduser -f - -w no 2> /dev/null
+		else
+			useradd integria
+			mkdir /home/pandora 2> /dev/null
+			mkdir /home/pandora/.ssh 2> /dev/null
+			chown -R integria /home/integria 
+		fi
+	fi
+
+        echo "Configuring tentacle server launcher..."
+
+        sed -i s!INTEGRIA_SERVER_PATH=.*data_in.*!INTEGRIA_SERVER_PATH=\"$INTEGRIA_HOME\"!1 tentacle_serverd 
+
+	echo "Installing Tentacle Server..."
+	if [ "$DISTRO" = "UBUNTU" ] || [ "$DISTRO" = "DEBIAN" ]
+        	then
+                	# Tentacle server install (Ubuntu)
+                        cp tentacle_server /usr/bin
+                        chown integria /usr/bin/tentacle_server
+                        cp tentacle_serverd $TENTACLE_SERVER
+
+			chmod +x /usr/bin/tentacle_server
+			chmod +x $TENTACLE_SERVER
+
+                        update-rc.d tentacle_serverd defaults
+                else
+                	if [ "$DISTRO" = "SUSE" ]
+                        	then
+                                        cp tentacle_server /usr/bin
+                                        chown integria /usr/bin/tentacle_server
+                                        cp tentacle_serverd /etc/init.d/tentacle_serverd
+					
+					chmod +x /usr/bin/tentacle_server
+                        		chmod +x $TENTACLE_SERVER
+                                        
+					insserv tentacle_serverd
+                                else
+                                        # Tentacle server install (Other Distros)
+                                        cp tentacle_server /usr/bin
+                                        chown integria /usr/bin/tentacle_server
+                                        cp tentacle_serverd /etc/init.d/tentacle_serverd
+                        		
+					chmod +x /usr/bin/tentacle_server
+                        		chmod +x $TENTACLE_SERVER                
+			
+					ln -s $TENTACLE_SERVER /etc/rc.d/rc2.d/S80tentacle_serverd
+                        fi
+        fi	
+
+	#Ownership
+	if [ "$DISTRO" = "UBUNTU" ]
+	then
+		chown -R integria:www-data $INTEGRIA_HOME
+	else 
+		if [ "$DISTRO" = "RHEL_CENTOS" ]
+		then
+			chown -R integria:apache $INTEGRIA_HOME
+		else 
+			if [ "$DISTRO" = "FEDORA" ]
+			then
+				chown -R integria:apache $INTEGRIA_HOME
+			else
+				if [ "$DISTRO" = "FreeBSD" -o "$DISTRO" = "NetBSD" ]
+				then
+					chown -R integria:www $INTEGRIA_HOME
+				else
+					# Assuming SUSE
+					chown -R integria:www $INTEGRIA_HOME
+				fi
+			fi
+		fi
+	fi
+
+	echo "Done."
+}
+
+# Script banner at start
+echo " "
+echo "Integria IMS Remote Inventory Installer $PI_VERSION (c) 2008-2013 ArticaST"
+echo "This program is licensed under GPL2 Terms. http://integriaims.com"
+echo " "
+
+install
+exit
+

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#I think that all world was online ;) .
+#echo Install PEAR XML/RPC.php PHP Library.
+#pear install XML_RPC
+
+echo Change the user and group to /var/www/integria
+chmod -R u+rwX,g+rX,g-w,o-rwx /var/www/integria
+chgrp www-data /var/www/integria -R
+chown www-data /var/www/integria -R
+
+echo Restart the apache.
+/etc/init.d/apache2 restart
+
+echo "Please, now, point your browser to http://your_IP_address/integria/install.php and follow all the steps described on it."

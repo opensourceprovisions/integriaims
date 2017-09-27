@@ -1,0 +1,1 @@
+[_sitename_] NUEVO&nbsp;ticket #_incident_id_ _incident_title_.

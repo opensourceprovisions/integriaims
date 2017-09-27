@@ -1,0 +1,118 @@
+== About Integria ==
+
+Integria, originally TOPi and before of that, FRee Incident Tracking System
+(FRITS) was designed as a simple Incident / Bug Tracking system, but very
+oriented to be multiuser, multigroup, with several profile support, internal
+messaging and internal audit capabilities. TOPI was a spin-off or partial fork
+from the Pandora FMS project.
+
+After the first pre-release version, we are added todo management, work units
+and cost calculator, reporting for projects and people tasks, agenda/calendar
+and full project management using a multi group/profile system.
+
+Integria is currently under heavy development, so is not very stable for use in
+production yet, but we want to launch a first stable prerelease before Q2 2008.
+You could download it from our subversioncode repository at sourceforge.
+
+Official website is at http://integria.sourceforge.net
+
+
+===Enterprise Incident management===
+
+We are very aware of company needs because we run one and have many customers
+demanding a good and OpenSource Project Management / Incident Tracking system
+for their needs, able to adapt to many dynamic environments. So this was the
+first idea of this project: give just a professional tool that fits this kind of
+needs. We want to follow some methodologies from ITIL and of course, the
+experience of our userbase and customers.
+
+Main features
+
+* Multi user, with separated views.
+* Email notification of any change on incidents.
+* Incidents could be associated to a project/task.
+* Incident work could be managed as work units.
+* Several diferent status for an incident, and also resolution level.
+* Several users can manage an incident and keep informed by the system on any
+change. 
+
+===Project management===
+
+We are using Integria in our company to track time wasted in each project, todo
+management, agenda and of course, full project management. This includes several
+people working in several proyects at the same time, reporting work hours,
+generating a knowledge base and setting up deadlines and task limits. Main
+features
+
+* Cost management.
+* Time tracking management.
+* Different roles, with different cost per role.
+* Project / Task anidated hierarchy.
+* Effective cost / Effective work metrics.
+* Graphical reporting by project.
+* Graphical reporting by user.
+* Gantt graphs.
+* Milestones.
+* Multiuser (including from different isolated companies) could participate in a
+part of a project (independent tasks).
+* Independent Todo management, with optional project relationship.
+* Agenda management 
+
+===Integrated reporting===
+
+We are using PDF and HTML realtime reporting, taken for our brother project,
+Babel Enterprise and some graphic engine from the same project, and also taken
+from Pandora FMS project, that uses Pear Graph modules to generate a fantastic
+realtime graphs, of course, nice GANTT reporting.
+
+== OpenSource ==
+
+Since beggining we want to make IntegriaOpenSource, and it's licenced under GPL2
+terms. All code will be free, and no portions of code or project will be under
+any other licence than GPL2.
+
+== Technology ==
+
+Integria is a simple AMP application: PHP5, MySQL and Apache.
+
+== About us ==
+
+Some people who make this possible are working at ArticaST, a spanish company
+focused on IT security, who also develops Pandora FMS and Babel Enterprise, two
+open source projects.
+
+== Download Integria from code repository ==
+
+Currently we don't have any final stable release published, but you could get
+code from our code repository at SF's subversion servers. We also have a first
+beta of future "stable" release (named 1.0 beta 1) at sourceforge, visit our
+site at http://integria.sourceforge.net.
+
+SVN (Subversion) is a tool used by many software developers to manage changes
+within their source code tree. SVN provides the means to store not only the
+current version of a piece of source code, but a record of all changes (and who
+made those changes) that have occurred to that source code. Use of SVN is
+particularly common on projects with multiple developers, since SVN ensures
+changes made by one developer are not accidentally removed when another
+developer posts their changes to the source tree.
+
+In order to access a Subversion repository, you must install a special piece of
+software called a Subversion client. Subversion clients are available for most
+any operating system. Information about accessing this Subversion repository may
+be found in our development guidelines about "Subversion (Version Control for
+Source Code)".
+
+Subversion Access This project's t Subversion repository can be checked out
+through SVN with the following instruction set:
+
+ svn co https://integria.svn.sourceforge.net/svnroot/integria
+
+== Installing Integria ==
+
+Just decompress code on a HTTP published directory, start your MySQL and point
+to ''install.php'' file to install your database and setup Integria on your
+server. Default user and password for Integria are "admin/integria".
+
+You would need a fully installation of Apache, PHP5.x, and MySQL 4.x. Have root
+password of mysql at hand, you will need to create Integria database in install
+process.

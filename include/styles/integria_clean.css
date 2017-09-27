@@ -1,0 +1,189 @@
+/*
+
+STYLE FOR WHITE BACKGROUND ON PDF/HTML output
+
+*/
+body {
+
+	margin-left: 20px;
+	margin-top: 50px;
+	font: 0.80em  Arial, 'Trebuchet MS', Arial, Sans-serif;
+	background: #ffffff;
+	color: #666666;
+	text-align: left;
+	background: none;
+}
+
+h1 {
+	color: #404040;
+	border-bottom: 2px solid #404040;
+	font-size: 22px;
+}
+
+h2 {
+	color: #FF7F00;
+	text-transform: none;
+	font-size:16px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+h1,h2 {
+	letter-spacing: 1px;
+}
+
+h2.dashboard_h2 {
+	color: #FF7F00;
+	text-transform: none;
+	font-size:16px;
+	margin-top: 30px;
+	margin-bottom: 0px;
+}
+
+h2.container_simple_title {
+	color: #FF7F00 !important;
+}
+
+table.search-table-button, div.container,
+div.container_div {
+	background-color: #fff;
+}
+
+table.search-table-button,
+table.advanced_details_table.
+table.conversion_rate {
+	width: 98%;
+	margin: 0 auto;
+}
+
+div.container_div {
+	margin-top: 0px;
+	border: 2px dashed #999999;
+	margin-left: -3px;
+	margin-right: -3px;
+}
+
+div.pie_frame,
+div.graph_frame {
+	border: 0px;
+	text-align: center;
+}
+
+div.pie_frame {
+	padding-left: 0px;
+}
+
+table.alternate tr:nth-child(odd) td,
+table.alternate tr:nth-child(even) td {
+	background-color: #fff;
+}
+
+div.incident_report_parameters_container {
+	width: 100%;
+}
+
+div.incident_report_parameters_container,
+div.container_incident_statistics_container,
+div.container_top5_incidents_container,
+div.container_sla_compliance_container {
+	margin: 0px;
+}
+
+div.container_incident_statistics_container,
+div.container_top5_incidents_container,
+div.container_sla_compliance_container,
+div.container_topactive_users_container,
+div.container_topincident_submitter_container,
+div.container_user_assigned_container,
+div.container_incidents_group_container,
+div.container_incident_creator_group_container,
+div.container_top5_scoring_container {
+	width:29%;
+}
+
+div.container_adaptor_na_graphic {
+	width:300px;
+	margin-top: 64px;
+	margin-bottom: 64px;	
+}
+
+div.container_adaptor_graphic {
+	width:300px; 
+	text-align: center; 
+	margin-top: 49px;
+}
+
+div.container table.listing {
+	padding: 10px;
+	padding-left: 17px;
+}
+
+#container_openclose_incidents_div {
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+div.container_status_incidents_container,
+div.container_priority_incidents_container,
+div.container_longest_closed_container,
+div.container_openclose_incidents_container,
+div.container_top5_group_time_container,
+div.container_top5_user_time_container,
+div.funnel_container,
+div.conversion_rate_container,
+div.leads_per_country_container,
+div.users_per_lead_container,
+div.top_10_sales_container,
+div.new_leads_container,
+div.project_labour_report_container,
+div.project_task_distribution_report_container,
+div.project_budget_report_container,
+div.project_workload_distribution_report_container,
+div.companies_invoiced_container,
+div.currency_invoiced_container   {
+	width:45%;	
+}
+
+table.table_priority_report {
+	margin: 10px auto;
+	margin-bottom: 30px;
+}
+
+#container_openclose_incidents_div {
+	padding-top: 3px;
+	padding-bottom: 3px1
+}
+
+div.container_adaptor_na_graphic2 {
+	margin-top: 39px;
+	margin-bottom: 39px;
+}
+
+div.incident_report_parameters_container {
+	width: 96%;
+	margin-top: -20px;
+}
+
+div.container_simple_incident_report_parameters{
+	padding: 10px;
+}
+
+#project_task_distribution_report {
+	color: #FF7F00 !important;
+}
+
+#details_table {
+	border: 0px !important;
+}
+
+td.advanced_details_icons {
+	background: #fff !important;
+}
+
+div.incident_description_container {
+	max-width: 100% !important;
+}
+
+h1.ticket_clean_report_title {
+	margin-top: 20px;
+}

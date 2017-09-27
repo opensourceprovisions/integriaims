@@ -1,0 +1,131 @@
+#!/bin/bash
+
+# Integria Upgrade (c) 2009-2012 Artica ST
+# Please see http://www.integriaims.com
+# This code is licensed under GPL 2.0 license.
+# **********************************************************************
+
+PI_VERSION=3.0
+USER=`whoami`
+
+if [ $USER != "root" ]
+then
+	echo "Upgrade process need to be executed by root"
+	exit -1
+fi
+
+MODE=$1
+
+integria_upgrade () {
+
+	if [ ! -e "$integriaPATH/index.php" ]
+	then
+		echo "ERROR: Provided path for current integria, do not exist ($integriaPATH)"
+		exit -1
+	fi	
+	echo "Installing new code in $integriaPATH"
+	cp -R * $integriaPATH
+	
+	# Upgrade Database ?
+	
+	if [ "$UPGRADEDB" == "1" ]
+	then
+		echo "Setting database schema changes"
+		DBUSER=`cat $integriaPATH/include/config.php | grep dbuser | grep -v "^\/" | grep -o "\=\"[a-zA-Z0-9]*\"" | grep -o "[A-Za-z0-9]*"`
+		DBPASS=`cat $integriaPATH/include/config.php | grep dbpass | grep -v "^\/" | grep -o "\=\"[a-zA-Z0-9]*\"" | grep -o "[A-Za-z0-9]*"`	
+		DBHOST=`cat $integriaPATH/include/config.php | grep dbhost | grep -v "^\/" | grep -o "\=\"[a-zA-Z0-9]*\"" | grep -o "[A-Za-z0-9]*"`
+		DBNAME=`cat $integriaPATH/include/config.php | grep dbname | grep -v "^\/" | grep -o "\=\"[a-zA-Z0-9]*\"" | grep -o "[A-Za-z0-9]*"`	
+		cat extras/integriadb_migrate_v3.0_to_v3.1.sql | mysql -f -u $DBUSER -p$DBPASS -h $DBHOST -D $DBNAME 	
+	fi
+
+	WWWUSER=`ls -la $integriaPATH/index.php | awk '{ print $3 }'` 
+	echo "Setting permissions for $WWWUSER in $integriaPATH"
+	chown -R $WWWUSER $integriaPATH
+	if [ "$?" -ne 0 ]
+	then
+		echo "ERROR (Cannot change $integriaPATH to $WWWUSER ownership)!"
+		return 1
+	fi
+
+	# Remove installer file
+
+	[ -f $integriaPATH/install.php ] && rm -f $integriaPATH/install.php
+
+	# Only root should have read/write access to config.php
+
+	chmod 600 $integriaPATH/include/config.php
+	if [ "$?" -ne 0 ]
+	then
+		echo "ERROR (Cannot do chmod 600 $integriaPATH/include/config.php)!"
+		return 1
+	fi
+
+	# Remove unnecessary files (optional, set variable to activate)
+
+	REMOVEFILES=0
+	if [ "${REMOVEFILES}" -eq 1 ]
+	then
+		rm -f $integriaPATH/AUTHORS
+		rm -f $integriaPATH/COPYING
+		rm -f $integriaPATH/ChangeLog
+		rm -f $integriaPATH/integria_update
+		rm -f $integriaPATH/*.sql
+	fi
+
+	echo " "
+	echo "DONE!"
+	echo " "
+	return 0
+}
+
+help () {
+	echo "     -p <path>  Update Integria IMS code in path (pe: /srv/www/htdocs/integria)"
+	echo "     -d         Upgrade Database (by default this script will not upgrade Database)           "
+	echo " "
+	exit 0
+}
+
+# Script banner at start
+echo " "
+echo "Integria IMS $PI_VERSION Update tool (c) 2012 Artica ST"
+echo "This program is licensed under GPL2 Terms. http://integriaims.com"
+echo " "
+
+UPGRADEDB=0
+UPGRADE=0
+
+if [ $# -eq 0 ]
+then
+	help
+fi
+
+# Main parsing code
+
+while getopts ":hdp:" optname
+	do
+		case "$optname" in
+		"h")
+			help
+			;;
+		"d")
+			UPGRADEDB=1
+			;; 
+		"p")
+			integriaPATH=$OPTARG
+			UPGRADE=1
+			;;
+		?)
+			help
+			;;
+		default) 
+			help
+			;; 
+		esac
+	done
+
+if [ "$UPGRADE" == "1" ]
+then
+	integria_upgrade
+fi
+
+exit

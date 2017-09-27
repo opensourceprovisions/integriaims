@@ -1,0 +1,20 @@
+[17-Sep-2017 16:11:06 Europe/Madrid] PHP Fatal error:  Call to undefined function license_count_regular_users() in /var/www/html/integriaims/include/functions_update_manager.php on line 341
+[17-Sep-2017 16:11:06 Europe/Madrid] PHP Stack trace:
+[17-Sep-2017 16:11:06 Europe/Madrid] PHP   1. {main}() /var/www/html/integriaims/index.php:0
+[17-Sep-2017 16:11:06 Europe/Madrid] PHP   2. require() /var/www/html/integriaims/index.php:518
+[17-Sep-2017 16:11:06 Europe/Madrid] PHP   3. update_manager_check_online_free_packages() /var/www/html/integriaims/general/header.php:76
+[17-Sep-2017 16:47:46 Europe/Madrid] PHP Fatal error:  Call to undefined function license_count_regular_users() in /var/www/html/integriaims/include/functions_update_manager.php on line 341
+[17-Sep-2017 16:47:46 Europe/Madrid] PHP Stack trace:
+[17-Sep-2017 16:47:46 Europe/Madrid] PHP   1. {main}() /var/www/html/integriaims/index.php:0
+[17-Sep-2017 16:47:46 Europe/Madrid] PHP   2. require() /var/www/html/integriaims/index.php:518
+[17-Sep-2017 16:47:46 Europe/Madrid] PHP   3. update_manager_check_online_free_packages() /var/www/html/integriaims/general/header.php:76
+[17-Sep-2017 16:47:55 Europe/Madrid] PHP Fatal error:  Call to undefined function license_count_regular_users() in /var/www/html/integriaims/include/functions_update_manager.php on line 341
+[17-Sep-2017 16:47:55 Europe/Madrid] PHP Stack trace:
+[17-Sep-2017 16:47:55 Europe/Madrid] PHP   1. {main}() /var/www/html/integriaims/index.php:0
+[17-Sep-2017 16:47:55 Europe/Madrid] PHP   2. require() /var/www/html/integriaims/index.php:518
+[17-Sep-2017 16:47:55 Europe/Madrid] PHP   3. update_manager_check_online_free_packages() /var/www/html/integriaims/general/header.php:76
+[24-Sep-2017 05:33:41 Europe/Madrid] PHP Fatal error:  Call to undefined function license_count_regular_users() in /var/www/html/integriaims/include/functions_update_manager.php on line 341
+[24-Sep-2017 05:33:41 Europe/Madrid] PHP Stack trace:
+[24-Sep-2017 05:33:41 Europe/Madrid] PHP   1. {main}() /var/www/html/integriaims/index.php:0
+[24-Sep-2017 05:33:41 Europe/Madrid] PHP   2. require() /var/www/html/integriaims/index.php:518
+[24-Sep-2017 05:33:41 Europe/Madrid] PHP   3. update_manager_check_online_free_packages() /var/www/html/integriaims/general/header.php:76
